@@ -17,4 +17,7 @@ Route::middleware([
 
     Route::post('/subscription/checkout', [SubscriptionController::class, 'checkout'])->name('subscription.checkout');
     Route::get('/subscription/checkout/cancel', [SubscriptionController::class, 'cancelCheckout'])->name('subscription.checkout.cancel');
+    Route::post('/subscription/cancel', [SubscriptionController::class, 'cancel'])->name('subscription.cancel');
+    Route::post('/subscription/resume', [SubscriptionController::class, 'resume'])->name('subscription.resume');
+    Route::post('/subscription/swap', [SubscriptionController::class, 'swap'])->name('subscription.swap');
 });
