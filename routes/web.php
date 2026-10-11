@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,4 +22,12 @@ Route::middleware([
     Route::post('/subscription/cancel', [SubscriptionController::class, 'cancel'])->name('subscription.cancel');
     Route::post('/subscription/resume', [SubscriptionController::class, 'resume'])->name('subscription.resume');
     Route::post('/subscription/swap', [SubscriptionController::class, 'swap'])->name('subscription.swap');
+
+    Route::post('/paypal/payment', [PaypalController::class, 'handlePayment'])->name('paypal.payment');
+    Route::get('/paypal/success', [PaypalController::class, 'success'])->name('paypal.success');
+    Route::get('/paypal/cancel', [PaypalController::class, 'cancel'])->name('paypal.cancel');
 });
+
+Route::get('/market', [ProductController::class, 'index'])->name('product.index');
+
+Route::get('/market/{product:slug}', [SubscriptionController::class, 'show'])->name('product.show');

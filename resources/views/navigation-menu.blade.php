@@ -1,7 +1,21 @@
 <nav class="w-full h-20 flex justify-between items-center px-72">
-    <h1 class="text-lg font-bold">
-        OXCHOLOT
-    </h1>
+    <div class="flex items-center space-x-20">
+        <h1 class="text-lg font-bold">
+            OXCHOLOT
+        </h1>
+        <ul class="text-neutral-600 flex items-center space-x-8">
+            <li>
+                <a href="{{ route('product.index') }}" class="hover:text-yellow-500 duration-150">
+                    market
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('product.index') }}" class="hover:text-yellow-500 duration-150">
+                    explore
+                </a>
+            </li>
+        </ul>
+    </div>
     <ul class="flex items-center space-x-3">
         <li>
             <a href="{{ route('dashboard') }}" class="hover:text-yellow-500 duration-150 underline decoration-transparent hover:decoration-yellow-500">

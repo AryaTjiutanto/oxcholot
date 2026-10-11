@@ -12,13 +12,14 @@ class DashboardController extends Controller
         $subscriptions = null;
         $subscription = null;
         $stripe_subscription = null;
+        $active_subscription = null;
         $price_id = null;
 
         if(Auth::user()->subscribed('default')) {
             $subscription = Auth::user()->subscription('default');
+            $subscriptions = Subscription::getSubscriptions();
             $stripe_subscription = $subscription->asStripeSubscription();
 
-            $subscriptions = Subscription::getSubscriptions();
             $price_id = $subscription->stripe_price;
     
             $active_subscription = $subscriptions->firstWhere('price_id', $price_id);
